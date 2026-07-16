@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>i-CR8 DESIGNS LIMITED</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:#FFFFFF;color:#1D1D1D;
+      font-family:'Archivo',sans-serif;font-weight:400;font-size:1rem;line-height:1.6;
+      -webkit-font-smoothing:antialiased
+    }
+    img{max-width:100%;display:block;height:auto}
+    a{text-decoration:none;color:inherit}
+    ::selection{background:rgba(54,70,125,0.12)}
+
+    :root{
+      --navy:#36467D;--navy-light:rgba(54,70,125,0.08);--navy-mid:rgba(54,70,125,0.5);
+      --dark:#1D1D1D;--gray:#5C5C5C;--border:rgba(29,29,29,0.08);--ink:rgba(29,29,29,0.04)
+    }
+
+    .w{max-width:1280px;margin:0 auto;padding:0 2.5rem}
+    .wn{max-width:920px;margin:0 auto;padding:0 2.5rem}
+    @media(max-width:640px){.w,.wn{padding:0 1.5rem}}
+
+    .h1{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(2.8rem,5.5vw,4.75rem);font-weight:800;line-height:1;letter-spacing:-0.03em;text-wrap:balance}
+    .h2{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(2.2rem,3.5vw,3.25rem);font-weight:700;line-height:1.06;letter-spacing:-0.025em;text-wrap:balance}
+    .h3{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(1.25rem,1.5vw,1.5rem);font-weight:700;line-height:1.15;letter-spacing:-0.015em}
+    .h4{font-weight:600;font-size:1.05rem;line-height:1.3;letter-spacing:-0.01em}
+    .p{font-size:1rem;color:var(--gray);line-height:1.7;max-width:60ch}
+    .p-sm{font-size:0.875rem;color:var(--gray);line-height:1.6}
+    .mono{font-family:'JetBrains Mono',monospace;font-size:0.625rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--navy)}
+
+    .btn{display:inline-flex;align-items:center;gap:0.5rem;font-weight:500;font-size:0.8rem;letter-spacing:0.03em;text-transform:uppercase;padding:0.85rem 2rem;border:none;cursor:pointer;transition:all 0.25s}
+    .btn-p{background:var(--navy);color:#FFF}
+    .btn-p:hover{background:#1F2943}
+    .btn-s{background:transparent;color:var(--dark);border:1px solid var(--dark)}
+    .btn-s:hover{background:var(--dark);color:#FFF}
+    .btn-w{color:#FFF;border:1px solid rgba(255,255,255,0.2)}
+    .btn-w:hover{border-color:#FFF;background:rgba(255,255,255,0.08)}
+    .btn-lg{padding:1rem 2.5rem;font-size:0.85rem}
+    .btn-a::after{content:"→";display:inline-block;transition:transform 0.3s}
+    .btn-a:hover::after{transform:translateX(4px)}
+
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(255,255,255,0.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .ni{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .nl{display:flex;align-items:center;gap:2.5rem;list-style:none}
+    .nl a{font-weight:500;font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--gray);transition:color 0.2s}
+    .nl a:hover,.nl a.active{color:var(--navy)}
+    .logo{display:flex;align-items:center;gap:0.65rem}
+    .logo img{height:34px}
+    .logo span{font-family:'Cabinet Grotesk',sans-serif;font-weight:700;font-size:1rem;color:var(--dark)}
+    .nt{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:8px}
+    .nt span{width:22px;height:2px;background:var(--dark);display:block;border-radius:1px}
+    @media(max-width:768px){
+      .nl{display:none;position:fixed;top:72px;left:0;width:100%;background:#FFFFFF;flex-direction:column;padding:2.5rem;gap:1.25rem;border-bottom:1px solid var(--border)}
+      .nl.open{display:flex}
+      .nt{display:flex}
+    }
+
+    section{padding:9rem 0}
+    @media(max-width:768px){section{padding:6rem 0}}
+
+    /* HERO */
+    .hero{min-height:100dvh;padding-top:72px;display:flex;align-items:center;overflow:hidden}
+    .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;min-height:calc(100dvh - 72px)}
+    .hero-txt{padding:3rem 0}
+    .hero-txt .h1{margin-bottom:1.25rem}
+    .hero-txt .p{font-size:1.125rem;margin-bottom:2.5rem}
+    .hero-act{display:flex;gap:1rem;flex-wrap:wrap}
+    .hero-vis{height:calc(100dvh - 100px);min-height:500px;position:relative;overflow:hidden}
+    .hero-vis img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+    .hero-vis::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(54,70,125,0.08),rgba(29,29,29,0.1))}
+    .hero-stat{position:absolute;bottom:2.5rem;left:2.5rem;z-index:2;color:#FFF}
+    .hero-stat .num{font-family:'Cabinet Grotesk',sans-serif;font-size:3rem;font-weight:800;line-height:1;letter-spacing:-0.02em}
+    .hero-stat .mono{color:rgba(255,255,255,0.4);font-size:0.55rem}
+    @media(max-width:968px){
+      .hero-inner{grid-template-columns:1fr;gap:0}
+      .hero-vis{height:35vh;min-height:300px}
+      .hero-txt{padding:3rem 0 2rem}
+    }
+
+    /* TRUST */
+    .trust-wrap{display:flex;justify-content:center;gap:3rem 5rem;flex-wrap:wrap;padding:2.5rem 0}
+    .trust-wrap span{font-weight:500;font-size:0.85rem;color:var(--dark);opacity:0.1}
+    .trust-wrap span:hover{opacity:0.3;transition:opacity 0.3s}
+
+    /* STATS */
+    .stats-wrap{display:flex;justify-content:space-around;gap:2rem;flex-wrap:wrap;padding:3rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .st{text-align:center}
+    .st .num{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(2.2rem,3.5vw,3.5rem);font-weight:800;line-height:1;color:var(--navy);margin-bottom:0.15rem;letter-spacing:-0.02em}
+    .st .mono{font-size:0.55rem;color:var(--gray);display:block}
+
+    /* ABOUT */
+    .ab{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+    .ab-img{height:600px;overflow:hidden;position:relative;background:var(--ink)}
+    .ab-img img{width:100%;height:100%;object-fit:cover}
+    .ab-text .h2{margin-bottom:1rem}
+    .ab-text .p{margin-bottom:1rem}
+    .ab-text .p:last-of-type{margin-bottom:2rem}
+    .ab-vals{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid var(--border)}
+    .ab-vals .v{display:flex;gap:0.75rem;align-items:flex-start}
+    .ab-vals .v .dot{width:5px;height:5px;background:var(--navy);border-radius:50%;margin-top:0.6rem;flex-shrink:0}
+    .ab-vals .v h4{font-weight:600;font-size:0.9rem;margin-bottom:0.05rem}
+    .ab-vals .v p{font-size:0.825rem;color:var(--gray);line-height:1.5}
+    @media(max-width:768px){
+      .ab{grid-template-columns:1fr;gap:2.5rem}
+      .ab-img{height:340px}
+      .ab-vals{grid-template-columns:1fr}
+    }
+
+    /* SERVICES */
+    .sc{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border)}
+    .srv{background:#FFFFFF;padding:3rem 2.5rem;transition:background 0.3s}
+    .srv:hover{background:var(--navy-light)}
+    .srv .icon{width:28px;height:28px;margin-bottom:1.25rem;color:var(--navy)}
+    .srv .h3{margin-bottom:0.5rem}
+    .srv .p{margin-bottom:1.25rem;font-size:0.9rem}
+    .srv a{font-weight:500;font-size:0.75rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--navy);display:inline-flex;align-items:center;gap:0.25rem}
+    .srv a::after{content:"→";transition:transform 0.2s}
+    .srv:hover a::after{transform:translateX(4px)}
+    @media(max-width:968px){.sc{grid-template-columns:1fr 1fr}}
+    @media(max-width:640px){.sc{grid-template-columns:1fr}}
+
+    /* FEATURED */
+    .f{display:grid;grid-template-columns:1fr 1fr;min-height:480px}
+    .fi{position:relative;overflow:hidden;min-height:380px}
+    .fi img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+    .fc{padding:3.5rem;display:flex;flex-direction:column;justify-content:center}
+    .fc .h3{margin-bottom:0.75rem}
+    .fc .p{margin-bottom:1.5rem}
+    .fm{display:flex;gap:2.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+    .fm .mono{font-size:0.55rem;display:block;margin-bottom:0.15rem}
+    .fm .v{font-weight:500;font-size:0.9rem}
+    @media(max-width:768px){.f{grid-template-columns:1fr}.fi{min-height:250px}.fc{padding:2rem}}
+
+    /* PROJECT CARDS */
+    .pg{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}
+    .pc{cursor:pointer}
+    .pt{height:220px;overflow:hidden;position:relative;margin-bottom:1rem;background:var(--ink)}
+    .pt img{width:100%;height:100%;object-fit:cover;transition:transform 0.7s}
+    .pc:hover .pt img{transform:scale(1.04)}
+    .pc .loc{font-family:'JetBrains Mono',monospace;font-size:0.6rem;text-transform:uppercase;color:var(--navy);margin-bottom:0.35rem}
+    .pc .h4{margin-bottom:0.1rem}
+    .pc .p{font-size:0.85rem}
+    @media(max-width:968px){.pg{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:640px){.pg{grid-template-columns:1fr}}
+
+    /* CTA */
+    .cta{padding:10rem 0;text-align:center;background:var(--dark)}
+    .cta .h2{color:#FFF;margin-bottom:0.75rem}
+    .cta .p{color:rgba(255,255,255,0.45);margin:0 auto 2.5rem}
+    .cta-a{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+    .cta-a .btn-p{background:#FFF;color:var(--dark)}
+    .cta-a .btn-p:hover{background:rgba(255,255,255,0.85)}
+    .cta .mono{color:rgba(255,255,255,0.2);display:block;margin-bottom:0.75rem}
+    @media(max-width:768px){.cta{padding:6rem 0}}
+
+    /* FOOTER */
+    footer{background:var(--dark);padding:4rem 0 2rem}
+    .fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem}
+    .fb img{height:34px;margin-bottom:0.75rem;filter:brightness(0)invert(1)}
+    .fb p{font-size:0.85rem;color:rgba(255,255,255,0.25);max-width:28ch}
+    .fh{font-family:'JetBrains Mono',monospace;font-size:0.55rem;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:1rem;letter-spacing:0.06em}
+    .fl{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
+    .fl a,.fl span{color:rgba(255,255,255,0.4);font-size:0.85rem;transition:color 0.2s}
+    .fl a:hover{color:#FFF}
+    .fbot{border-top:1px solid rgba(255,255,255,0.04);margin-top:3rem;padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .fbot p{font-size:0.7rem;color:rgba(255,255,255,0.15)}
+    .fbot .mono{font-size:0.5rem;color:rgba(255,255,255,0.06);display:flex;gap:1rem}
+    @media(max-width:768px){.fg{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="w ni">
+    <a href="index.html" class="logo"><img src="ic8 (1).png" alt=""><span>i-CR8 DESIGNS</span></a>
+    <ul class="nl" id="nl">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div style="display:flex;gap:0.75rem;align-items:center">
+      <a href="#contact" class="btn btn-p" style="padding:0.5rem 1.25rem;font-size:0.7rem">Get a Quote</a>
+      <button class="nt" id="nt"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="w hero-inner">
+    <div class="hero-txt">
+      <h1 class="h1 reveal">We Design.<br>We Build.<br><span style="color:var(--navy)">We Transform.</span></h1>
+      <p class="p reveal" style="transition-delay:0.1s">Abuja-based architectural design and construction firm — from concept to completion. Founded 2012.</p>
+      <div class="hero-act reveal" style="transition-delay:0.2s">
+        <a href="#contact" class="btn btn-p btn-lg btn-a">Request a Consultation</a>
+        <a href="#projects" class="btn btn-s btn-lg">Our Work</a>
+      </div>
+    </div>
+    <div class="hero-vis reveal" style="transition-delay:0.15s">
+      <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=900&q=85" alt="Steel and glass building facade" loading="eager">
+      <div class="hero-stat"><div class="num">200+</div><span class="mono">Projects Delivered</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="w"><div class="trust-wrap reveal"><span>MERCY CORPS</span><span>CBN</span><span>CHEMONICS</span><span>SOTERIA SCHOOLS</span><span>DIAMOND ESTATES</span></div></div>
+
+<!-- STATS -->
+<div class="w" style="padding:0"><div class="stats-wrap reveal">
+  <div class="st"><div class="num">15+</div><span class="mono">Years of Practice</span></div>
+  <div class="st"><div class="num">200+</div><span class="mono">Projects Delivered</span></div>
+  <div class="st"><div class="num">50+</div><span class="mono">Corporate Clients</span></div>
+  <div class="st"><div class="num">6</div><span class="mono">Divisions</span></div>
+</div></div>
+
+<!-- ABOUT + VALUES -->
+<section id="about">
+  <div class="w">
+    <div class="ab">
+      <div class="ab-img reveal">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=700&q=85" alt="Steel construction framework" loading="lazy">
+      </div>
+      <div class="ab-text reveal" style="transition-delay:0.1s">
+        <h2 class="h2">Over a Decade of Building Excellence</h2>
+        <p class="p">Founded in 2012 and incorporated with the CAC on 22 December 2016 (<strong style="color:var(--dark);font-weight:500">RC 1381965</strong>), i-CR8 Designs Limited is a full-service architectural and construction firm serving clients across Nigeria.</p>
+        <p class="p">Licensed by ARCON (<strong style="color:var(--dark);font-weight:500">AFR/1507</strong>), BPP, NSITF, ITF, and PENCOM. PMP-certified project leadership across every phase — from concept design through construction and facility management.</p>
+        <a href="#" class="btn btn-p btn-a">Learn More</a>
+
+        <!-- Values inside About -->
+        <div class="ab-vals">
+          <div class="v"><div class="dot"></div><div><h4>Quality</h4><p>Excellence in every deliverable we touch</p></div></div>
+          <div class="v"><div class="dot"></div><div><h4>Innovation</h4><p>Technology-driven approach to every project</p></div></div>
+          <div class="v"><div class="dot"></div><div><h4>Integrity</h4><p>Transparent, honest business practices</p></div></div>
+          <div class="v"><div class="dot"></div><div><h4>Client-Centric</h4><p>Your vision guides everything we build</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="background:var(--ink);padding-bottom:7rem">
+  <div class="wn" style="text-align:center;margin-bottom:4rem">
+    <h2 class="h2 reveal" style="margin-bottom:0.75rem">What We Do</h2>
+    <p class="p reveal" style="transition-delay:0.05s;margin:0 auto">Six integrated divisions, one standard of excellence — from first sketch to finished space.</p>
+  </div>
+  <div class="w sc">
+    <div class="srv reveal">
+      <svg class="icon" viewBox="0 0 28 28" fill="none"><path d="M14 3L3 11v14h22V11L14 3z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M10 18h8v8h-8z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+      <h3 class="h3">Architectural Design</h3><p class="p">Bespoke 2D & 3D designs — residential, commercial, and institutional — tailored to your vision and budget.</p><a href="#">Explore</a>
+    </div>
+    <div class="srv reveal" style="transition-delay:0.05s">
+      <svg class="icon" viewBox="0 0 28 28" fill="none"><path d="M5 25V9l9-5 9 5v16H5z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M14 14v11" stroke="currentColor" stroke-width="1.5"/><path d="M8 19h12" stroke="currentColor" stroke-width="1.5"/></svg>
+      <h3 class="h3">Project Management</h3><p class="p">PMP-certified managers overseeing every phase — groundbreaking to handover, on time and budget.</p><a href="#">Explore</a>
+    </div>
+    <div class="srv reveal" style="transition-delay:0.1s">
+      <svg class="icon" viewBox="0 0 28 28" fill="none"><rect x="3" y="5" width="22" height="18" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M10 5v18M18 5v18" stroke="currentColor" stroke-width="1.5"/></svg>
+      <h3 class="h3">Facility Management</h3><p class="p">Total property care — cleaning, M&E repairs, security, waste disposal, and landscaping.</p><a href="#">Explore</a>
+    </div>
+    <div class="srv reveal">
+      <svg class="icon" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="16" y="3" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="3" y="16" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="16" y="16" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+      <h3 class="h3">Furniture Design</h3><p class="p">Custom sofas, beds, cabinets, and office furniture designed and produced to your specification.</p><a href="#">Explore</a>
+    </div>
+    <div class="srv reveal" style="transition-delay:0.05s">
+      <svg class="icon" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="10" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M6 25c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+      <h3 class="h3">Realty Services</h3><p class="p">Property sale, acquisition, leasing, and valuation across Abuja and beyond.</p><a href="#">Explore</a>
+    </div>
+    <div class="srv reveal" style="transition-delay:0.1s">
+      <svg class="icon" viewBox="0 0 28 28" fill="none"><path d="M3 25V15l11-7 11 7v10H3z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M18 25V16h-8v9" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+      <h3 class="h3">Financial Services</h3><p class="p">Building investment advisory, feasibility studies, and real estate portfolio guidance.</p><a href="#">Explore</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECT -->
+<section id="projects" style="padding-bottom:0">
+  <div class="w" style="margin-bottom:2.5rem">
+    <h2 class="h2 reveal" style="margin-bottom:0.5rem">Mercy Corps Regional HQ</h2>
+    <p class="p reveal" style="transition-delay:0.05s">Interior renovation and bespoke furniture for Mercy Corps' new headquarters in Utako District, Abuja.</p>
+  </div>
+  <div class="f" style="max-width:1280px;margin:0 auto">
+    <div class="fi reveal"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=85" alt="Bright modern office interior with glass partitions" loading="lazy"></div>
+    <div class="fc reveal" style="transition-delay:0.1s">
+      <span class="mono" style="font-size:0.55rem">Utako District, Abuja</span>
+      <h3 class="h3">Interior Décor, Renovation & Furniture</h3>
+      <p class="p">Full fit-out: reception furniture, conference rooms, wooden partitions, frosted glass screens, aluminium blinds, wall painting, and structural expansion.</p>
+      <div class="fm"><div><span class="mono">Client</span><span class="v">Mercy Corps</span></div><div><span class="mono">Scope</span><span class="v">Interior + Furniture</span></div><div><span class="mono">Sector</span><span class="v">Corporate</span></div></div>
+      <a href="#" class="btn btn-p btn-a">View Case Study</a>
+    </div>
+  </div>
+</section>
+
+<!-- MORE PROJECTS -->
+<section style="padding-top:6rem">
+  <div class="w" style="margin-bottom:2rem;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem">
+    <h3 class="h3 reveal" style="font-size:clamp(1.1rem,1.4vw,1.3rem)">Selected Projects</h3>
+    <div class="reveal" style="display:flex;gap:0.3rem;flex-wrap:wrap">
+      <span class="mono" style="font-size:0.55rem;padding:0.3rem 0.7rem;background:var(--navy);color:#FFF;display:inline-block">All</span>
+      <span class="mono" style="font-size:0.55rem;padding:0.3rem 0.7rem;border:1px solid var(--border);display:inline-block">Residential</span>
+      <span class="mono" style="font-size:0.55rem;padding:0.3rem 0.7rem;border:1px solid var(--border);display:inline-block">Commercial</span>
+      <span class="mono" style="font-size:0.55rem;padding:0.3rem 0.7rem;border:1px solid var(--border);display:inline-block">Institutional</span>
+    </div>
+  </div>
+  <div class="w pg">
+    <div class="pc reveal"><div class="pt"><img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=500&q=85" alt="School campus building" loading="lazy"></div><span class="loc">Satellite Town, Lagos</span><h4 class="h4">Soteria School Lagos</h4><p class="p">Full design & construction — Crèche to JSS with modern facilities.</p></div>
+    <div class="pc reveal" style="transition-delay:0.05s"><div class="pt"><img src="https://images.unsplash.com/photo-1541736226577-5171c13d09f9?w=500&q=85" alt="Multi-storey concrete car park" loading="lazy"></div><span class="loc">CBD, Abuja</span><h4 class="h4">CBN Multi-Level Car Park</h4><p class="p">Resident project management for car park & office spaces.</p></div>
+    <div class="pc reveal" style="transition-delay:0.1s"><div class="pt"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=500&q=85" alt="Contemporary office workspace" loading="lazy"></div><span class="loc">Utako, Abuja</span><h4 class="h4">Chemonics International</h4><p class="p">Office partitioning & private conference spaces.</p></div>
+    <div class="pc reveal"><div class="pt"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500&q=85" alt="Luxury hillside villa" loading="lazy"></div><span class="loc">Ibillo, Edo State</span><h4 class="h4">Residential Villa</h4><p class="p">Luxury 5-bed villa with cinema, gym, library, pool.</p></div>
+    <div class="pc reveal" style="transition-delay:0.05s"><div class="pt"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=500&q=85" alt="Warm restaurant interior" loading="lazy"></div><span class="loc">Lugbe, Abuja</span><h4 class="h4">Javeene Shawarma & Grill</h4><p class="p">Remodelling & interior décor conversion.</p></div>
+    <div class="pc reveal" style="transition-delay:0.1s"><div class="pt"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&q=85" alt="Modern residential terrace" loading="lazy"></div><span class="loc">Sabon Lugbe, Abuja</span><h4 class="h4">Diamond Estates</h4><p class="p">8 units of 4-bedroom terrace duplexes.</p></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" style="padding:0">
+  <div class="cta">
+    <div class="wn">
+      <span class="mono reveal" style="color:rgba(255,255,255,0.2)">Let's Work Together</span>
+      <h2 class="h2 reveal" style="transition-delay:0.05s">Ready to Build?</h2>
+      <p class="p reveal" style="transition-delay:0.1s;color:rgba(255,255,255,0.45)">From concept to completion — tell us about your project.</p>
+      <div class="cta-a reveal" style="transition-delay:0.2s">
+        <a href="mailto:hello@icr8designs.com.ng" class="btn btn-p btn-lg btn-a">hello@icr8designs.com.ng</a>
+        <a href="tel:+2348065704446" class="btn btn-w btn-lg">+234 806 570 4446</a>
+        <a href="tel:+2349056760567" class="btn btn-w btn-lg">+234 905 676 0567</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="w">
+    <div class="fg">
+      <div class="fb"><img src="ic8 (1).png" alt=""><p>Defining the built environment through rigorous design and technical excellence. Abuja, Nigeria.</p></div>
+      <div><p class="fh">Links</p><ul class="fl"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#projects">Projects</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><p class="fh">Contact</p><ul class="fl"><li><a href="tel:+2348065704446">+234 806 570 4446</a></li><li><a href="tel:+2349056760567">+234 905 676 0567</a></li><li><a href="mailto:hello@icr8designs.com.ng">hello@icr8designs.com.ng</a></li></ul></div>
+      <div><p class="fh">Offices</p><ul class="fl"><li><span>Suite 31, Bataiya Plaza<br>Area 11, Garki, Abuja</span></li><li><span>House 101, FHA Estate<br>Lugbe, Abuja</span></li></ul></div>
+    </div>
+    <div class="fbot"><p>© 2026 i-CR8 DESIGNS LIMITED · RC 1381965</p><div class="mono"><span>Precision</span><span>·</span><span>Form</span><span>·</span><span>Materiality</span></div></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('nt').addEventListener('click',()=>{document.getElementById('nl').classList.toggle('open')})
+  document.querySelectorAll('.nl a').forEach(a=>{a.addEventListener('click',()=>document.getElementById('nl').classList.remove('open'))})
+  const nl=document.querySelectorAll('.nl a'),ob=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){nl.forEach(l=>l.classList.remove('active'));document.querySelector(`.nl a[href="#${e.target.id}"]`)?.classList.add('active')}})},{threshold:0.3})
+  document.querySelectorAll('section[id]').forEach(s=>ob.observe(s))
+  const rv=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1})
+  document.querySelectorAll('.reveal').forEach(e=>rv.observe(e))
+</script>
+
+</body>
+</html>
